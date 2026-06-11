@@ -1,16 +1,31 @@
 using UnityEngine;
+using StarterAssets;
 
-public class PlayerCameraScript : MonoBehaviour
+public class DynamicFOV : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float idleFOV = 70f;
+    public float movingFOV = 85f;
+    public float smoothSpeed = 8f;
+
+    private Camera cam;
+    private StarterAssetsInputs input;
+
+    private void Start()
     {
-        
+        // Get camera
+        cam = GetComponent<Camera>();
+
+        // Finds player input
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            input = player.GetComponent<StarterAssetsInputs>();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
     }
 }
