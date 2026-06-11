@@ -26,6 +26,20 @@ public class DynamicFOV : MonoBehaviour
 
     private void Update()
     {
+        // Stop if player not found
+        if (input == null) 
+        {
+            return;
+        }
 
+        // Change FOV based on movement
+        if (input.move != Vector2.zero)
+        {
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, movingFOV, Time.deltaTime * smoothSpeed);
+        }
+        else
+        {
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, idleFOV, Time.deltaTime * smoothSpeed);
+        }
     }
 }
