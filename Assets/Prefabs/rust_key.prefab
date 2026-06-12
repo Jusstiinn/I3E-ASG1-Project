@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 7259758178079118950}
   - component: {fileID: 2628712188707086936}
   - component: {fileID: 8843137596475673693}
-  - component: {fileID: 9055866758019131865}
   m_Layer: 0
   m_Name: rust_key
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,15 +135,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.12193203, y: 0.07659637, z: 0.23262407}
   m_Center: {x: -9.036491e-13, y: 0.000026710955, z: 0.000000065799}
---- !u!114 &9055866758019131865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4102966542414708584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490f94d1c12e1ae4982fb799bdb3e636, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KeyScript

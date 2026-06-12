@@ -11,6 +11,12 @@ public class KillZone : MonoBehaviour
     [SerializeField] private GameObject hudPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject escapedPanel;
+    PlayerScript playerScript;
+//get player script
+    void Start()
+    {
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+    } 
     private void OnTriggerEnter(Collider other)
     {
         //get the top most parent's transform
@@ -32,6 +38,9 @@ public class KillZone : MonoBehaviour
         gameOverPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        //reset health
+        playerScript.health = 3;
         
         //disable the cc so character can teleport.
         CharacterController cc = playerTransform.GetComponent<CharacterController>();

@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public float interactDistance = 3f;
     [SerializeField] private AudioSource doorOpenClip;
     [SerializeField] private AudioSource doorCloseClip;
+    [SerializeField] private AudioSource keyCollectClip;
     [HideInInspector] public GameObject currentCollectible;
     [HideInInspector] public GameObject currentDoor;
     [HideInInspector] public Animator animator;
@@ -69,6 +70,23 @@ public class PlayerScript : MonoBehaviour
                 else
                 {
                     Debug.Log("Door is locked. Find the key!");
+                }
+            }
+            //Check for key tag
+            else if (hit.collider.CompareTag("Key"))
+            {
+                GameObject key = hit.collider.GetComponent<GameObject>();
+                Debug.Log("Key collected!");
+                hasKey = true;
+                //plays key collect audio
+                if (keyCollectClip != null)
+                {
+                    keyCollectClip.PlayOneShot(keyCollectClip.clip);
+                    Destroy(key, keyCollectClip.clip.length);
+                }
+                else
+                {
+                    Destroy(key);
                 }
             }
         }

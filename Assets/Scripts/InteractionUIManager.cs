@@ -44,6 +44,11 @@ public class InteractionUIManager : MonoBehaviour
                     interactionText.enabled = true;
                 }
             }
+            else if (hit.collider.CompareTag("Key"))
+            {
+                interactionText.text = "E - Take Key";
+                interactionText.enabled = true;
+            }
             else
             {
                 interactionText.enabled = false;

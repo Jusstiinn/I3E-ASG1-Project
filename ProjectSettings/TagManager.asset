@@ -8,6 +8,8 @@ TagManager:
   - Collectible
   - Door
   - Enemy
+  - Key
+  - RespawnScript
   layers:
   - Default
   - TransparentFX
