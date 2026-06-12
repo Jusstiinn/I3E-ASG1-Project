@@ -5010,7 +5010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AITarget
   target: {fileID: 0}
-  attackDistance: 3.25
+  attackDistance: 2.5
 --- !u!1 &5263932849288145128
 GameObject:
   m_ObjectHideFlags: 0

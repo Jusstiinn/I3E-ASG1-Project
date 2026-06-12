@@ -1,0 +1,59 @@
+using UnityEngine;
+
+public class CollectibleScript : MonoBehaviour
+{
+    MeshRenderer meshRenderer;
+    CapsuleCollider triggerCollider;
+    AudioSource collectibleAudio;
+    PlayerScript playerScript;
+
+    void Start()
+    {
+        collectibleAudio = GetComponent<AudioSource>();
+        meshRenderer = GetComponent<MeshRenderer>();
+        triggerCollider = GetComponent<CapsuleCollider>();
+    }
+
+        private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // get playerscript and update crystal count and call collect function
+            playerScript = other.GetComponent<PlayerScript>();
+            if (playerScript != null)
+            {
+                playerScript.crystalCount++;
+                Debug.Log("Collected" + playerScript.crystalCount + " crystals!");
+                Collect();
+            }
+        }
+    }
+    public void Collect()
+    {
+        if (meshRenderer != null)
+        {
+            meshRenderer.enabled = false;
+        }
+
+        if (triggerCollider != null)
+        {
+            triggerCollider.enabled = false;
+        }
+
+        if (collectibleAudio != null)
+        {
+            collectibleAudio.Play();
+            float delay = 0.1f;
+
+            if (collectibleAudio.clip != null)
+            {
+                delay = collectibleAudio.clip.length / Mathf.Max(collectibleAudio.pitch, 0.01f) + 0.05f;
+            }
+
+            Destroy(gameObject, delay);
+            return;
+        }
+
+        Destroy(gameObject);
+    }
+}
