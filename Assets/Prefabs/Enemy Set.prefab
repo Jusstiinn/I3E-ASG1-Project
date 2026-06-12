@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
   m_SerializedVersion: 0
   m_AgentTypeID: -1372625422
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_CollectObjects: 1
+  m_Size: {x: 68.98053, y: 10, z: 53.777775}
+  m_Center: {x: 28.939749, y: 2, z: -19.951189}
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -111,14 +111,14 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 60
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 60
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -137,22 +137,31 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.13554627
-      value: 0.2399568
-      inSlope: -1.0020041
-      outSlope: -1.0020041
+      time: 0.20756775
+      value: 0.53329176
+      inSlope: -1.4780736
+      outSlope: -1.4780736
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.45724264
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5411128
+      value: 0.28266168
+      inSlope: -0.012816305
+      outSlope: -0.012816305
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.29569015
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -0.14545786
-      outSlope: -0.14545786
+      inSlope: -1.3656876
+      outSlope: -1.3656876
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.28791374
+      inWeight: 0.1680059
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
