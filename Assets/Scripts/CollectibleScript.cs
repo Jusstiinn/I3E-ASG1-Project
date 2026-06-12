@@ -46,20 +46,14 @@ public class CollectibleScript : MonoBehaviour
             triggerCollider.enabled = false;
         }
 
-        if (collectibleAudio != null)
-        {
-            collectibleAudio.Play();
-            float delay = 0.1f;
-
-            if (collectibleAudio.clip != null)
+        if (collectibleAudio != null && collectibleAudio.clip != null)
             {
-                delay = collectibleAudio.clip.length / Mathf.Max(collectibleAudio.pitch, 0.01f) + 0.05f;
+                collectibleAudio.PlayOneShot(collectibleAudio.clip);
+                Destroy(gameObject, collectibleAudio.clip.length);
             }
-
-            Destroy(gameObject, delay);
-            return;
-        }
-
-        Destroy(gameObject);
+            else
+            {
+                Destroy(gameObject);
+            }
     }
 }

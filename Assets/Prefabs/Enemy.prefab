@@ -4850,6 +4850,7 @@ GameObject:
   - component: {fileID: 8483980523500972603}
   - component: {fileID: 2170238187946915327}
   - component: {fileID: 6166649131855121633}
+  - component: {fileID: 7931021840756279471}
   - component: {fileID: 5927712091845345116}
   m_Layer: 0
   m_Name: Enemy
@@ -4985,7 +4986,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.49999997
-  m_Speed: 10
+  m_Speed: 10.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 250
@@ -4997,6 +4998,19 @@ NavMeshAgent:
   m_BaseOffset: 0.49999997
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7931021840756279471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063235634658615000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decf6f315c0150f438ac3b58ecd40cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
+  hasAttacked: 0
 --- !u!114 &5927712091845345116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5011,6 +5025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AITarget
   target: {fileID: 0}
   attackDistance: 2.5
+  attacking: 0
 --- !u!1 &5263932849288145128
 GameObject:
   m_ObjectHideFlags: 0

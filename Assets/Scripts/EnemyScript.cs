@@ -40,7 +40,7 @@ public class EnemyScript : MonoBehaviour
                 Debug.Log("Player Health: " + playerScript.health);
                 if (enemyAudio != null)
                 {
-                    enemyAudio.Play();
+                    enemyAudio.PlayOneShot(enemyAudio.clip);
                 }
             }
         }

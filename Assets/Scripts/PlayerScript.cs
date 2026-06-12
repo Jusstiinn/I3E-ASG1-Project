@@ -12,6 +12,8 @@ public class PlayerScript : MonoBehaviour
 
     public Camera playerCamera;
     public float interactDistance = 3f;
+    [SerializeField] private AudioSource doorOpenClip;
+    [SerializeField] private AudioSource doorCloseClip;
     [HideInInspector] public GameObject currentCollectible;
     [HideInInspector] public GameObject currentDoor;
     [HideInInspector] public Animator animator;
@@ -53,9 +55,15 @@ public class PlayerScript : MonoBehaviour
                         animator.SetBool("IsOpen", !isOpen);
 
                         if (!isOpen)
+                        {
                             animator.SetTrigger("OpenDoor");
+                            doorOpenClip.PlayOneShot(doorOpenClip.clip);
+                        }
                         else
+                        {
                             animator.SetTrigger("CloseDoor");
+                            doorCloseClip.PlayOneShot(doorCloseClip.clip);
+                        }
                     }
                 }
                 else
