@@ -10,19 +10,21 @@ using System.Collections;
 
 public class AITarget : MonoBehaviour
 {
+    EnemyScript enemyScript;
     public Transform target;
     public float attackDistance;
     private NavMeshAgent agent;
     private float distance;
-    private bool attacking;
+    [HideInInspector] public bool attacking;
 
     // Start to get navmesh agent
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        enemyScript = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
     }
 
-    //Wait for 1.5 seconds before moving again
+    //Wait for 2 seconds before moving again
     IEnumerator Wait()
     {
         agent.isStopped = true;
@@ -30,6 +32,7 @@ public class AITarget : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         agent.isStopped = false;
+        enemyScript.hasAttacked = false;
         attacking = false;
     }
 
@@ -42,9 +45,11 @@ public class AITarget : MonoBehaviour
 
             if (distance <= attackDistance)
             {
+                //attack cooldown
                 if (!attacking)
                 {
                     attacking = true;
+                    Debug.Log("Player Damaged!");
                     StartCoroutine(Wait());
                 }
             }

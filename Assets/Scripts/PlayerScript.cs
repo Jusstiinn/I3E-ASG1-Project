@@ -3,6 +3,7 @@
 * Date: 12/6/2026
 * Description: Script for player movement, health and door interactions.
 */
+
 using UnityEngine.InputSystem;
 using UnityEngine;
 
@@ -15,7 +16,9 @@ public class PlayerScript : MonoBehaviour
     [HideInInspector] public GameObject currentDoor;
     [HideInInspector] public Animator animator;
     [HideInInspector] public int crystalCount = 0;
+    [HideInInspector] public int health = 3;
     [HideInInspector] public bool hasKey = false;
+
 
     void Update()
     {

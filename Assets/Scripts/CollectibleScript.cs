@@ -29,7 +29,7 @@ public class CollectibleScript : MonoBehaviour
             if (playerScript != null)
             {
                 playerScript.crystalCount++;
-                Debug.Log("Collected" + playerScript.crystalCount + " crystals!");
+                Debug.Log("Collected " + playerScript.crystalCount + " crystals!");
                 Collect();
             }
         }
