@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 588256242690079409}
   - component: {fileID: 4126905309765089433}
   - component: {fileID: 6190518394610367632}
+  - component: {fileID: 2918984167934804166}
   m_Layer: 0
   m_Name: Crystal
   m_TagString: Untagged
@@ -90,3 +91,25 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!195 &2918984167934804166
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163443653369772013}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.010927603
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 0
+  m_AutoBraking: 1
+  m_AutoRepath: 0
+  m_Height: 0.035444733
+  m_BaseOffset: 0.017722366
+  m_WalkableMask: 0
+  m_ObstacleAvoidanceType: 0
