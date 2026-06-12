@@ -3,7 +3,7 @@
 * Date: 12/6/2026
 * Description: Script for player movement, health and door interactions.
 */
-
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -15,6 +15,16 @@ public class PlayerScript : MonoBehaviour
     [HideInInspector] public GameObject currentDoor;
     [HideInInspector] public Animator animator;
     [HideInInspector] public int crystalCount = 0;
+    [HideInInspector] public bool hasKey = false;
+
+    void Update()
+    {
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            OnInteract();
+        }
+    }
+
     public void OnInteract()
     {
         Debug.Log("interact pressed");
@@ -24,21 +34,31 @@ public class PlayerScript : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
-            //Debug.Log("Looking at: " + hit.collider.gameObject.name);
-
-            Animator animator = hit.collider.GetComponentInParent<Animator>();
-            //set animator state to open and close door
-            if (animator != null)
+            //Check if raycasted object is door
+            if (hit.collider.CompareTag("Door") ||(hit.collider.transform.parent != null && hit.collider.transform.parent.CompareTag("Door")))
             {
-                //Debug.Log("Found animator");
+                //check if haskey
+                if (hasKey)
+                {
+                    Animator animator = hit.collider.GetComponentInParent<Animator>();
+                    //set animator state to open and close door
+                    if (animator != null)
+                    {
+                        //Debug.Log("Found animator");
 
-                bool isOpen = animator.GetBool("IsOpen");
-                animator.SetBool("IsOpen", !isOpen);
+                        bool isOpen = animator.GetBool("IsOpen");
+                        animator.SetBool("IsOpen", !isOpen);
 
-                if (!isOpen)
-                    animator.SetTrigger("OpenDoor");
+                        if (!isOpen)
+                            animator.SetTrigger("OpenDoor");
+                        else
+                            animator.SetTrigger("CloseDoor");
+                    }
+                }
                 else
-                    animator.SetTrigger("CloseDoor");
+                {
+                    Debug.Log("Door is locked. Find the key!");
+                }
             }
         }
     }
