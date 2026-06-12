@@ -3,48 +3,38 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
-    [HideInInspector] 
-    public GameObject currentCollectible;
-    public GameObject currentDoor;
-    public Animator animator;
-    public int crystalCount = 0;
-    public int score = 0;
-
-    void OnTriggerEnter(Collider other)
+    public Camera playerCamera;
+    public float interactDistance = 3f;
+    [HideInInspector] public GameObject currentCollectible;
+    [HideInInspector] public GameObject currentDoor;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public int crystalCount = 0;
+    public void OnInteract()
     {
-        
-        /*
-        if (other.CompareTag("Door"))
-        {
-            currentDoor = other.gameObject;
-        }
-        */
-    }
+        Debug.Log("interact pressed");
+        //cast ray
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        RaycastHit hit;
 
-    void OnInteract()
-    {   
-        /* Check if the player is near a door and open it
-        if (currentDoor != null)
+        if (Physics.Raycast(ray, out hit, interactDistance))
         {
-            Debug.Log("Player is INTERACTING WITH DOOOROR.");
-            animator = currentDoor.GetComponentInParent<Animator>();
+            //Debug.Log("Looking at: " + hit.collider.gameObject.name);
+
+            Animator animator = hit.collider.GetComponentInParent<Animator>();
+            //set animator state to open and close door
             if (animator != null)
             {
-                Debug.Log("Player is TRIGGING.");
-                if (animator.GetBool("IsOpen") == false)
-                {
-                    animator.SetBool("IsOpen", true);
-                    animator.SetTrigger("OpenDoor"); 
-                }
-                else if (animator.GetBool("IsOpen") == true)
-                {
-                    animator.SetBool("IsOpen", false);
-                    animator.SetTrigger("CloseDoor");
-                }
-            }
-            currentDoor = null;
-        }
-            */
+                //Debug.Log("Found animator");
 
+                bool isOpen = animator.GetBool("IsOpen");
+                animator.SetBool("IsOpen", !isOpen);
+
+                if (!isOpen)
+                    animator.SetTrigger("OpenDoor");
+                else
+                    animator.SetTrigger("CloseDoor");
+            }
+        }
     }
 }
+
