@@ -1,3 +1,9 @@
+/*
+* Author: Justin Chua
+* Date: 11/6/2026
+* Description: Script for turning on and off the interact prompt UI
+*/
+
 using TMPro;
 using UnityEngine;
 

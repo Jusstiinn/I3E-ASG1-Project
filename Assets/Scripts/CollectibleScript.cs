@@ -12,6 +12,7 @@ public class CollectibleScript : MonoBehaviour
     CapsuleCollider triggerCollider;
     AudioSource collectibleAudio;
     PlayerScript playerScript;
+    [SerializeField] private int crystalScoreValue = 1;
 
     void Start()
     {
