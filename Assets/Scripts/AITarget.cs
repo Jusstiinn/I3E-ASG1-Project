@@ -1,3 +1,9 @@
+/*
+* Author: Justin Chua
+* Date: 12/6/2026
+* Description: Script for AI targetting the player and attacking when within range
+*/
+
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;

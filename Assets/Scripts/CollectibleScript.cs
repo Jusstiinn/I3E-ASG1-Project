@@ -1,3 +1,9 @@
+/*
+* Author: Justin Chua
+* Date: 12/6/2026
+* Description: Script for collectible items that can be picked up by the player, destorying them, playing a sound effect and adding to the crystal count
+*/
+
 using UnityEngine;
 
 public class CollectibleScript : MonoBehaviour

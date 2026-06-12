@@ -1,3 +1,9 @@
+/*
+* Author: Justin Chua
+* Date: 12/6/2026
+* Description: Script for player movement, health and door interactions.
+*/
+
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour

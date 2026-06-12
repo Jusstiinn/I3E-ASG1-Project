@@ -1,3 +1,9 @@
+/*
+* Author: Justin Chua
+* Date: 11/6/2026
+* Description: Script for dynamically adjusting FOV based on player movement
+*/
+
 using UnityEngine;
 using StarterAssets;
 
