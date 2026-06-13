@@ -44,7 +44,7 @@ public class EnemyScript : MonoBehaviour
                 {
                     Debug.Log("Player damaged! Health: " + playerScript.health);
                 }
-                Debug.Log("Player Health: " + playerScript.health);
+                //plays attack sound
                 if (enemyAudio != null)
                 {
                     enemyAudio.PlayOneShot(enemyAudio.clip);

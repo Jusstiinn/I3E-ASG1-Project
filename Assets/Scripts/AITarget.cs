@@ -11,6 +11,8 @@ using System.Collections;
 public class AITarget : MonoBehaviour
 {
     EnemyScript enemyScript;
+    PlayerScript playerScript;
+    ExitDetection exitDetection;
     public Transform target;
     public float attackDistance;
     private NavMeshAgent agent;
@@ -22,6 +24,8 @@ public class AITarget : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         enemyScript = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
+        playerScript= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        exitDetection = GameObject.FindGameObjectWithTag("ExitTrigger").GetComponent<ExitDetection>();
     }
 
     //Wait for 2 seconds before moving again
@@ -39,11 +43,15 @@ public class AITarget : MonoBehaviour
     // Update function to check distance to target and attack if within range
     void Update()
     {
-        //check if enemy has killed player
-        if(enemyScript.hasDied)
+        //check if player has opened the door, to activate the enemy & if enemy has killed player
+        if(!playerScript.doorIsOpen || enemyScript.hasDied || exitDetection.escaped)
         {
             agent.isStopped = true;
             return;
+        }
+        else
+        {
+            agent.isStopped = false;
         }
 
         if (target != null)

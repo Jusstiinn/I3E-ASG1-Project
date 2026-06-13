@@ -21,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     [HideInInspector] public int crystalCount = 0;
     [HideInInspector] public int health = 3;
     [HideInInspector] public bool hasKey = false;
+    [HideInInspector] public bool doorIsOpen = false;
 
 
     void Update()
@@ -59,6 +60,8 @@ public class PlayerScript : MonoBehaviour
                         {
                             animator.SetTrigger("OpenDoor");
                             doorOpenClip.PlayOneShot(doorOpenClip.clip);
+                            doorIsOpen = true;
+                            Debug.Log("Doorisopen set to true");
                         }
                         else
                         {
