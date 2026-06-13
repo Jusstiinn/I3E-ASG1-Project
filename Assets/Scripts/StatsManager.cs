@@ -24,7 +24,7 @@ public class StatsManager : MonoBehaviour
         if (playerScript != null)
         {
             crystalsShattered.text = "Crystals Shattered: " + playerScript.crystalCount;
-            crystalsLeft.text = "Crystals Left: " + (50 - playerScript.crystalCount);
+            crystalsLeft.text = "Crystals Left: " + (55 - playerScript.crystalCount);
             livesLeft.text = "Lives Left: " + playerScript.health;
         }
     }

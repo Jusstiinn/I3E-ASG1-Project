@@ -77,6 +77,11 @@
                 "value": "{\"m_Value\":false}"
             },
             {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "SelectEdgeLoop.selectIterative",
+                "value": "{\"m_Value\":false}"
+            },
+            {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ShapeBuilder.ActiveShapeIndex",
                 "value": "{\"m_Value\":6}"
@@ -84,7 +89,7 @@
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize.Cube",
-                "value": "{\"m_Value\":{\"x\":0.7430200576782227,\"y\":-22.8575496673584,\"z\":22.551101684570314}}"
+                "value": "{\"m_Value\":{\"x\":21.370052337646486,\"y\":0.047572869807481769,\"z\":-36.44231033325195}}"
             },
             {
                 "type": "UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
