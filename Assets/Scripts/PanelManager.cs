@@ -5,12 +5,15 @@
 */
 
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PanelManager : MonoBehaviour
 {
+    EnemyScript enemyScript;
     [SerializeField] private GameObject hudPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject escapedPanel;
+    [SerializeField] public NavMeshAgent enemyAgent;
 
     void Start()
     {
@@ -18,6 +21,7 @@ public class PanelManager : MonoBehaviour
         hudPanel.SetActive(true);
         gameOverPanel.SetActive(false);
         escapedPanel.SetActive(false);
+        enemyScript = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
     }
     public void HideGameOver()
     {
@@ -25,5 +29,7 @@ public class PanelManager : MonoBehaviour
         hudPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        enemyAgent.isStopped = false;
+        enemyScript.hasDied = false;
     }
 }

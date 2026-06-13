@@ -5,12 +5,14 @@
 */
 
 using UnityEngine;
+using UnityEngine.AI;
 
 public class KillZone : MonoBehaviour
 {
     [SerializeField] private GameObject hudPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject escapedPanel;
+    [SerializeField] public NavMeshAgent enemyAgent;
     PlayerScript playerScript;
 //get player script
     void Start()
@@ -28,7 +30,7 @@ public class KillZone : MonoBehaviour
             Respawn(playerRoot);
         }
     }
-    //respawn function to move character controller
+    //respawn function to move character controller and disable navmesh
     public void Respawn(Transform playerTransform)
     {
         Debug.Log("Respawn running");
@@ -39,7 +41,8 @@ public class KillZone : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        //reset health
+        //reset health and turn off tracking
+        enemyAgent.isStopped = true;
         playerScript.health = 3;
         
         //disable the cc so character can teleport.

@@ -39,23 +39,34 @@ public class AITarget : MonoBehaviour
     // Update function to check distance to target and attack if within range
     void Update()
     {
+        //check if enemy has killed player
+        if(enemyScript.hasDied)
+        {
+            agent.isStopped = true;
+            return;
+        }
+
         if (target != null)
         {
-            distance = Vector3.Distance(transform.position, target.position);
+            //check if navmesh is availble
+            if(agent != null && agent.enabled)
+            {
+                distance = Vector3.Distance(transform.position, target.position);
 
-            if (distance <= attackDistance)
-            {
-                //attack cooldown
-                if (!attacking)
+                if (distance <= attackDistance)
                 {
-                    attacking = true;
-                    Debug.Log("Player Damaged!");
-                    StartCoroutine(Wait());
+                    //attack cooldown
+                    if (!attacking)
+                    {
+                        attacking = true;
+                        Debug.Log("Player Damaged!");
+                        StartCoroutine(Wait());
+                    }
                 }
-            }
-            else
-            {
-                agent.destination = target.position;
+                else
+                {
+                    agent.destination = target.position;
+                }
             }
         }
             
