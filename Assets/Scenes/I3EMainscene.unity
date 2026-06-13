@@ -51190,7 +51190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 278737870691625459}
   m_Layer: 0
-  m_Name: Enemy Set
+  m_Name: Enemy and Navmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
