@@ -8,16 +8,21 @@ using UnityEngine;
 
 public class ExitDetection : MonoBehaviour
 {
-
+    KillZone killZone;
     [SerializeField] private GameObject hudPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject escapedPanel;
 
+    void Start()
+    {
+        killZone = GameObject.FindGameObjectWithTag("RespawnScript").GetComponent<KillZone>();
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player has reached the exit!");
+            killZone.enemyAgent.isStopped = true;
             hudPanel.SetActive(false);
             escapedPanel.SetActive(true);
         }

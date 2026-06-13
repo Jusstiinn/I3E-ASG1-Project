@@ -75,13 +75,15 @@ public class PlayerScript : MonoBehaviour
             //Check for key tag
             else if (hit.collider.CompareTag("Key"))
             {
-                GameObject key = hit.collider.GetComponent<GameObject>();
+                GameObject key = hit.collider.gameObject;
+                MeshRenderer keyRenderer = hit.collider.GetComponent<MeshRenderer>();
                 Debug.Log("Key collected!");
                 hasKey = true;
                 //plays key collect audio
                 if (keyCollectClip != null)
                 {
                     keyCollectClip.PlayOneShot(keyCollectClip.clip);
+                    keyRenderer.enabled = false;
                     Destroy(key, keyCollectClip.clip.length);
                 }
                 else

@@ -8347,6 +8347,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5031114086678664281, guid: f36bdf1ef60877a4da55a453070c4b11, type: 3}
   m_PrefabInstance: {fileID: 3465105821320547802}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &1242838772 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6166649131855121633, guid: f36bdf1ef60877a4da55a453070c4b11, type: 3}
+  m_PrefabInstance: {fileID: 3465105821320547802}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1265142181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10020,6 +10025,7 @@ MonoBehaviour:
   hudPanel: {fileID: 1027007577}
   gameOverPanel: {fileID: 1467123167}
   escapedPanel: {fileID: 1601010737}
+  enemyAgent: {fileID: 1242838772}
 --- !u!23 &1534734668
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15461,6 +15467,7 @@ MonoBehaviour:
   hudPanel: {fileID: 1027007577}
   gameOverPanel: {fileID: 1467123167}
   escapedPanel: {fileID: 1601010737}
+  enemyAgent: {fileID: 1242838772}
 --- !u!1001 &2026598736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16441,6 +16448,10 @@ PrefabInstance:
       propertyPath: hudPanel
       value: 
       objectReference: {fileID: 1027007577}
+    - target: {fileID: 7931021840756279471, guid: f36bdf1ef60877a4da55a453070c4b11, type: 3}
+      propertyPath: enemyAgent
+      value: 
+      objectReference: {fileID: 1242838772}
     - target: {fileID: 7931021840756279471, guid: f36bdf1ef60877a4da55a453070c4b11, type: 3}
       propertyPath: escapedPanel
       value: 
